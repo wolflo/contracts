@@ -564,6 +564,40 @@ const test_ovmCREATE: TestDefinition = {
       ],
     },
     {
+      name: 'OZ-AUDIT: ovmCREATE => ((ovmCREATE => ovmADDRESS), ovmREVERT)',
+      focus: true,
+      steps: [
+        {
+          functionName: 'ovmCREATE',
+          functionParams: {
+            subSteps: [
+              {
+                functionName: 'ovmCREATE',
+                functionParams: {
+                  subSteps: [
+                    {
+                      functionName: 'ovmADDRESS',
+                      expectedReturnValue: NESTED_CREATED_CONTRACT
+                    },
+                  ],
+                },
+                expectedReturnStatus: true,
+                expectedReturnValue: NESTED_CREATED_CONTRACT,
+              },
+              {
+                functionName: 'ovmREVERT',
+                revertData: DUMMY_REVERT_DATA,
+                expectedReturnStatus: true,
+                expectedReturnValue: '0x00',
+              }
+            ],
+          },
+          expectedReturnStatus: true,
+          expectedReturnValue: ZERO_ADDRESS,
+        },
+      ],
+    },
+    {
       name: 'ovmCREATE => OUT_OF_GAS',
       steps: [
         {
