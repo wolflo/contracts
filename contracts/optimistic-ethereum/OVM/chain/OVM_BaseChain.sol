@@ -21,6 +21,7 @@ contract OVM_BaseChain is iOVM_BaseChain {
     bytes32[] internal batches;
     uint256 internal totalBatches;
     uint256 internal totalElements;
+    event BatchAppend(bytes32 _batchHeaderHash)
 
 
     /*************************************
@@ -117,6 +118,8 @@ contract OVM_BaseChain is iOVM_BaseChain {
         batches.push(batchHeaderHash);
         totalBatches += 1;
         totalElements += _batchHeader.batchSize;
+
+        emit BatchAppend(batchHeader)
     }
 
     /**
