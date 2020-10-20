@@ -16,16 +16,6 @@ import {
   NULL_BYTES32,
 } from '../../../helpers'
 
-const DUMMY_TX_CHAIN_ELEMENTS = [...Array(10)].map(() => {
-  return {
-    isSequenced: false,
-    queueIndex: BigNumber.from(0),
-    timestamp: BigNumber.from(0),
-    blockNumber: BigNumber.from(0),
-    txData: NULL_BYTES32,
-  }
-})
-
 describe('OVM_FraudVerifier', () => {
   let AddressManager: Contract
   before(async () => {
@@ -93,7 +83,7 @@ describe('OVM_FraudVerifier', () => {
   describe('initializeFraudVerification', () => {
     describe('when provided an invalid pre-state root inclusion proof', () => {
       before(() => {
-        Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+        Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
           false
         )
       })
@@ -105,7 +95,6 @@ describe('OVM_FraudVerifier', () => {
             DUMMY_BATCH_HEADERS[0],
             DUMMY_BATCH_PROOFS[0],
             DUMMY_OVM_TRANSACTIONS[0],
-            DUMMY_TX_CHAIN_ELEMENTS[0],
             DUMMY_BATCH_HEADERS[0],
             DUMMY_BATCH_PROOFS[0]
           )
@@ -115,14 +104,14 @@ describe('OVM_FraudVerifier', () => {
 
     describe('when provided a valid pre-state root inclusion proof', () => {
       before(() => {
-        Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+        Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
           true
         )
       })
 
       describe('when provided an invalid transaction inclusion proof', () => {
         before(() => {
-          Mock__OVM_CanonicalTransactionChain.smocked.verifyTransaction.will.return.with(
+          Mock__OVM_CanonicalTransactionChain.smocked.verifyElement.will.return.with(
             false
           )
         })
@@ -134,7 +123,6 @@ describe('OVM_FraudVerifier', () => {
               DUMMY_BATCH_HEADERS[0],
               DUMMY_BATCH_PROOFS[0],
               DUMMY_OVM_TRANSACTIONS[0],
-              DUMMY_TX_CHAIN_ELEMENTS[0],
               DUMMY_BATCH_HEADERS[0],
               DUMMY_BATCH_PROOFS[0]
             )
@@ -144,7 +132,7 @@ describe('OVM_FraudVerifier', () => {
 
       describe('when provided a valid transaction inclusion proof', () => {
         before(() => {
-          Mock__OVM_CanonicalTransactionChain.smocked.verifyTransaction.will.return.with(
+          Mock__OVM_CanonicalTransactionChain.smocked.verifyElement.will.return.with(
             true
           )
         })
@@ -156,7 +144,6 @@ describe('OVM_FraudVerifier', () => {
               DUMMY_BATCH_HEADERS[0],
               DUMMY_BATCH_PROOFS[0],
               DUMMY_OVM_TRANSACTIONS[0],
-              DUMMY_TX_CHAIN_ELEMENTS[0],
               DUMMY_BATCH_HEADERS[0],
               DUMMY_BATCH_PROOFS[0]
             )
@@ -172,10 +159,10 @@ describe('OVM_FraudVerifier', () => {
 
   describe('finalizeFraudVerification', () => {
     beforeEach(async () => {
-      Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+      Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
         true
       )
-      Mock__OVM_CanonicalTransactionChain.smocked.verifyTransaction.will.return.with(
+      Mock__OVM_CanonicalTransactionChain.smocked.verifyElement.will.return.with(
         true
       )
 
@@ -184,7 +171,6 @@ describe('OVM_FraudVerifier', () => {
         DUMMY_BATCH_HEADERS[0],
         DUMMY_BATCH_PROOFS[0],
         DUMMY_OVM_TRANSACTIONS[0],
-        DUMMY_TX_CHAIN_ELEMENTS[0],
         DUMMY_BATCH_HEADERS[0],
         DUMMY_BATCH_PROOFS[0]
       )
@@ -244,7 +230,7 @@ describe('OVM_FraudVerifier', () => {
 
         describe('when provided an invalid pre-state root inclusion proof', () => {
           beforeEach(() => {
-            Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+            Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
               false
             )
           })
@@ -265,14 +251,14 @@ describe('OVM_FraudVerifier', () => {
 
         describe('when provided a valid pre-state root inclusion proof', () => {
           before(() => {
-            Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+            Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
               true
             )
           })
 
           describe('when provided an invalid post-state root inclusion proof', () => {
             beforeEach(() => {
-              Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+              Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
                 (stateRoot: string, ...args: any) => {
                   return stateRoot !== NON_NULL_BYTES32
                 }
@@ -295,7 +281,7 @@ describe('OVM_FraudVerifier', () => {
 
           describe('when provided a valid post-state root inclusion proof', () => {
             before(() => {
-              Mock__OVM_StateCommitmentChain.smocked.verifyStateCommitment.will.return.with(
+              Mock__OVM_StateCommitmentChain.smocked.verifyElement.will.return.with(
                 true
               )
             })

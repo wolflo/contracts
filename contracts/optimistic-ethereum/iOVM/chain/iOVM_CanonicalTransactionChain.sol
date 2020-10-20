@@ -5,10 +5,13 @@ pragma experimental ABIEncoderV2;
 /* Library Imports */
 import { Lib_OVMCodec } from "../../libraries/codec/Lib_OVMCodec.sol";
 
+/* Interface Imports */
+import { iOVM_BaseChain } from "./iOVM_BaseChain.sol";
+
 /**
  * @title iOVM_CanonicalTransactionChain
  */
-interface iOVM_CanonicalTransactionChain {
+interface iOVM_CanonicalTransactionChain is iOVM_BaseChain {
 
     /**********
      * Events *
@@ -47,32 +50,18 @@ interface iOVM_CanonicalTransactionChain {
         uint256 blockNumber;
     }
 
+    struct TransactionChainElement {
+        bool isSequenced;
+        uint256 queueIndex;  // QUEUED TX ONLY
+        uint256 timestamp;   // SEQUENCER TX ONLY
+        uint256 blockNumber; // SEQUENCER TX ONLY
+        bytes txData;        // SEQUENCER TX ONLY
+    }
+
 
     /********************
      * Public Functions *
      ********************/
-
-    /**
-     * Retrieves the total number of elements submitted.
-     * @return _totalElements Total submitted elements.
-     */
-    function getTotalElements()
-        external
-        view
-        returns (
-            uint256 _totalElements
-        );
-
-    /**
-     * Retrieves the total number of batches submitted.
-     * @return _totalBatches Total submitted batches.
-     */
-    function getTotalBatches()
-        external
-        view
-        returns (
-            uint256 _totalBatches
-        );
 
     /**
      * Gets the queue element at a particular index.
@@ -98,8 +87,7 @@ interface iOVM_CanonicalTransactionChain {
         address _target,
         uint256 _gasLimit,
         bytes memory _data
-    )
-        external;
+    ) external;
 
     /**
      * Appends a given number of queued transactions as a single batch.
@@ -107,42 +95,19 @@ interface iOVM_CanonicalTransactionChain {
      */
     function appendQueueBatch(
         uint256 _numQueuedTransactions
-    )
-        external;
+    ) external;
 
     /**
      * Allows the sequencer to append a batch of transactions.
-     * @dev This function uses a custom encoding scheme for efficiency reasons.
-     * .param _shouldStartAtBatch Specific batch we expect to start appending to.
-     * .param _totalElementsToAppend Total number of batch elements we expect to append.
-     * .param _contexts Array of batch contexts.
-     * .param _transactionDataFields Array of raw transaction data.
+     * param _shouldStartAtBatch Specific batch we expect to start appending to.
+     * param _totalElementsToAppend Total number of batch elements we expect to append.
+     * param _contexts Array of batch contexts.
+     * param _transactionDataFields Array of raw transaction data.
      */
-    function appendSequencerBatch(
+    function appendSequencerBatch( // USES CUSTOM ENCODING FOR EFFICIENCY PURPOSES
         // uint40 _shouldStartAtBatch,
         // uint24 _totalElementsToAppend,
         // BatchContext[] _contexts,
         // bytes[] _transactionDataFields
-    )
-        external;
-
-    /**
-     * Verifies whether a transaction is included in the chain.
-     * @param _transaction Transaction to verify.
-     * @param _txChainElement Transaction chain element corresponding to the transaction.
-     * @param _batchHeader Header of the batch the transaction was included in.
-     * @param _inclusionProof Inclusion proof for the provided transaction chain element.
-     * @return True if the transaction exists in the CTC, false if not.
-     */
-    function verifyTransaction(
-        Lib_OVMCodec.Transaction memory _transaction,
-        Lib_OVMCodec.TransactionChainElement memory _txChainElement,
-        Lib_OVMCodec.ChainBatchHeader memory _batchHeader,
-        Lib_OVMCodec.ChainInclusionProof memory _inclusionProof
-    )
-        external
-        view
-        returns (
-            bool
-        );
+    ) external;
 }
