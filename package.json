@@ -14,6 +14,7 @@
     "build": "yarn run build:contracts && yarn run build:typescript && yarn run build:copy && yarn run build:dump && yarn run build:typechain",
     "build:typescript": "tsc -p tsconfig.prod.json",
     "build:contracts": "buidler compile",
+    "build:contracts:ovm": "buidler compile --ovm",
     "build:dump": "ts-node \"bin/take-dump.ts\"",
     "build:copy": "copyfiles -u 2 \"contracts/optimistic-ethereum/**/*.sol\" \"build/contracts\"",
     "build:typechain": "buidler typechain",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@eth-optimism/smock": "^0.0.2",
+    "@eth-optimism/solc": "^0.5.16-alpha.5",
     "@nomiclabs/buidler": "^1.4.4",
     "@nomiclabs/buidler-ethers": "^2.0.0",
     "@nomiclabs/buidler-waffle": "^2.0.0",
