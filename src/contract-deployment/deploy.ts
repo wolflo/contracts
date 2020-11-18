@@ -3,6 +3,7 @@ import { Signer, Contract, ContractFactory } from 'ethers'
 
 /* Internal Imports */
 import { RollupDeployConfig, makeContractDeployConfig } from './config'
+import { BIG_GAS_LIMIT, SMALL_GAS_LIMIT, GAS_PRICE } from '.'
 import { getContractFactory } from '../contract-defs'
 
 export interface DeployResult {
@@ -26,6 +27,16 @@ export const deploy = async (
     AddressManager
   )
 
+  if (!config.deployOverrides) {
+    config.deployOverrides = {
+      gasLimit: BIG_GAS_LIMIT,
+      gasPrice: GAS_PRICE
+    }
+  } else {
+    config.deployOverrides.gasLimit = BIG_GAS_LIMIT
+    config.deployOverrides.gasPrice = GAS_PRICE
+  }
+
   const failedDeployments: string[] = []
   const contracts: {
     [name: string]: Contract
@@ -45,7 +56,13 @@ export const deploy = async (
           ...(contractDeployParameters.params || []),
           config.deployOverrides || {}
         )
-      await AddressManager.setAddress(name, contracts[name].address)
+      const res = await AddressManager.setAddress(name, contracts[name].address,
+        {
+          gasLimit: SMALL_GAS_LIMIT
+        }
+      )
+      console.log('Waiting!')
+      await res.wait()
     } catch (err) {
       failedDeployments.push(name)
     }
