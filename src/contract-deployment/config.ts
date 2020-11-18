@@ -4,6 +4,7 @@ import { Overrides } from '@ethersproject/contracts'
 
 /* Internal Imports */
 import { getContractFactory } from '../contract-defs'
+import { BIG_GAS_LIMIT, SMALL_GAS_LIMIT, GAS_PRICE } from '.'
 
 export interface RollupDeployConfig {
   deploymentSigner: Signer
@@ -57,10 +58,15 @@ export const makeContractDeployConfig = async (
         )
           .connect(config.deploymentSigner)
           .attach(contracts.Proxy__OVM_L1CrossDomainMessenger.address)
-        await xDomainMessenger.initialize(AddressManager.address)
+        await xDomainMessenger.initialize(AddressManager.address, {
+          gasLimit: SMALL_GAS_LIMIT
+        })
         await AddressManager.setAddress(
           'OVM_L2CrossDomainMessenger',
-          config.ovmGlobalContext.L2CrossDomainMessengerAddress
+          config.ovmGlobalContext.L2CrossDomainMessengerAddress,
+          {
+            gasLimit: SMALL_GAS_LIMIT
+          }
         )
       },
     },
@@ -76,16 +82,32 @@ export const makeContractDeployConfig = async (
           typeof sequencer === 'string'
             ? sequencer
             : await sequencer.getAddress()
-        await AddressManager.setAddress('OVM_Sequencer', sequencerAddress)
-        await AddressManager.setAddress('Sequencer', sequencerAddress)
-        await contracts.OVM_CanonicalTransactionChain.init()
+        await AddressManager.setAddress('OVM_Sequencer', sequencerAddress, 
+          {
+            gasLimit: SMALL_GAS_LIMIT
+          }
+        )
+        await AddressManager.setAddress('Sequencer', sequencerAddress, 
+          {
+            gasLimit: SMALL_GAS_LIMIT
+          }
+        )
+        await contracts.OVM_CanonicalTransactionChain.init(
+          {
+            gasLimit: SMALL_GAS_LIMIT
+          }
+        )
       },
     },
     OVM_StateCommitmentChain: {
       factory: getContractFactory('OVM_StateCommitmentChain'),
       params: [AddressManager.address],
       afterDeploy: async (contracts): Promise<void> => {
-        await contracts.OVM_StateCommitmentChain.init()
+        await contracts.OVM_StateCommitmentChain.init(
+          {
+            gasLimit: SMALL_GAS_LIMIT
+          }
+        )
       },
     },
     OVM_DeployerWhitelist: {
@@ -117,7 +139,11 @@ export const makeContractDeployConfig = async (
       params: [await config.deploymentSigner.getAddress()],
       afterDeploy: async (contracts): Promise<void> => {
         await contracts.OVM_StateManager.setExecutionManager(
-          contracts.OVM_ExecutionManager.address
+          contracts.OVM_ExecutionManager.address,
+          {
+            gasLimit: SMALL_GAS_LIMIT,
+            gasPrice: GAS_PRICE
+          }
         )
       },
     },
