@@ -457,6 +457,155 @@
             "out": false
         },
 
+        "single opcode whitelisted: STOP": {
+            "in": "0x00",
+            "out": true
+        },
+        "single opcode whitelisted: JUMP": {
+            "in": "0x56",
+            "out": true
+        },
+        "single opcode whitelisted: RETURN": {
+            "in": "0xf3",
+            "out": true
+        },
+        "single opcode whitelisted: INVALID": {
+            "in": "0xfe",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH1": {
+            "in": "0x60",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH2": {
+            "in": "0x61",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH3": {
+            "in": "0x62",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH4": {
+            "in": "0x63",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH5": {
+            "in": "0x64",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH6": {
+            "in": "0x65",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH7": {
+            "in": "0x66",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH8": {
+            "in": "0x67",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH9": {
+            "in": "0x68",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH10": {
+            "in": "0x69",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH11": {
+            "in": "0x6a",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH12": {
+            "in": "0x6b",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH13": {
+            "in": "0x6c",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH14": {
+            "in": "0x6d",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH15": {
+            "in": "0x6e",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH16": {
+            "in": "0x6f",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH17": {
+            "in": "0x70",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH18": {
+            "in": "0x71",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH19": {
+            "in": "0x72",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH20": {
+            "in": "0x73",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH21": {
+            "in": "0x74",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH22": {
+            "in": "0x75",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH23": {
+            "in": "0x76",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH24": {
+            "in": "0x77",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH25": {
+            "in": "0x78",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH26": {
+            "in": "0x79",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH27": {
+            "in": "0x7a",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH28": {
+            "in": "0x7b",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH29": {
+            "in": "0x7c",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH30": {
+            "in": "0x7d",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH31": {
+            "in": "0x7e",
+            "out": true
+        },
+        "single opcode whitelisted: incomplete PUSH32": {
+            "in": "0x7f",
+            "out": true
+        },
+        "single opcode blacklisted: CALLER": {
+            "in": "0x33",
+            "out": false
+        },
+
         "single opcode blacklisted: ADDRESS": {
             "in": "0x30",
             "out": false
