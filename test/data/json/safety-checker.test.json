@@ -1,5 +1,462 @@
 {
     "tests": {
+        "single opcode undefined: 0x0c": {
+            "in": "0x0c",
+            "out": false
+        },
+        "single opcode undefined: 0x0d": {
+            "in": "0x0d",
+            "out": false
+        },
+        "single opcode undefined: 0x0e": {
+            "in": "0x0e",
+            "out": false
+        },
+        "single opcode undefined: 0x0f": {
+            "in": "0x0f",
+            "out": false
+        },
+        "single opcode undefined: 0x1e": {
+            "in": "0x1e",
+            "out": false
+        },
+        "single opcode undefined: 0x1f": {
+            "in": "0x1f",
+            "out": false
+        },
+        "single opcode undefined: 0x21": {
+            "in": "0x21",
+            "out": false
+        },
+        "single opcode undefined: 0x22": {
+            "in": "0x22",
+            "out": false
+        },
+        "single opcode undefined: 0x23": {
+            "in": "0x23",
+            "out": false
+        },
+        "single opcode undefined: 0x24": {
+            "in": "0x24",
+            "out": false
+        },
+        "single opcode undefined: 0x25": {
+            "in": "0x25",
+            "out": false
+        },
+        "single opcode undefined: 0x26": {
+            "in": "0x26",
+            "out": false
+        },
+        "single opcode undefined: 0x27": {
+            "in": "0x27",
+            "out": false
+        },
+        "single opcode undefined: 0x28": {
+            "in": "0x28",
+            "out": false
+        },
+        "single opcode undefined: 0x29": {
+            "in": "0x29",
+            "out": false
+        },
+        "single opcode undefined: 0x2a": {
+            "in": "0x2a",
+            "out": false
+        },
+        "single opcode undefined: 0x2b": {
+            "in": "0x2b",
+            "out": false
+        },
+        "single opcode undefined: 0x2c": {
+            "in": "0x2c",
+            "out": false
+        },
+        "single opcode undefined: 0x2d": {
+            "in": "0x2d",
+            "out": false
+        },
+        "single opcode undefined: 0x2e": {
+            "in": "0x2e",
+            "out": false
+        },
+        "single opcode undefined: 0x2f": {
+            "in": "0x2f",
+            "out": false
+        },
+        "single opcode undefined: 0x48": {
+            "in": "0x48",
+            "out": false
+        },
+        "single opcode undefined: 0x49": {
+            "in": "0x49",
+            "out": false
+        },
+        "single opcode undefined: 0x4a": {
+            "in": "0x4a",
+            "out": false
+        },
+        "single opcode undefined: 0x4b": {
+            "in": "0x4b",
+            "out": false
+        },
+        "single opcode undefined: 0x4c": {
+            "in": "0x4c",
+            "out": false
+        },
+        "single opcode undefined: 0x4d": {
+            "in": "0x4d",
+            "out": false
+        },
+        "single opcode undefined: 0x4e": {
+            "in": "0x4e",
+            "out": false
+        },
+        "single opcode undefined: 0x4f": {
+            "in": "0x4f",
+            "out": false
+        },
+        "single opcode undefined: 0x5c": {
+            "in": "0x5c",
+            "out": false
+        },
+        "single opcode undefined: 0x5d": {
+            "in": "0x5d",
+            "out": false
+        },
+        "single opcode undefined: 0x5e": {
+            "in": "0x5e",
+            "out": false
+        },
+        "single opcode undefined: 0x5f": {
+            "in": "0x5f",
+            "out": false
+        },
+        "single opcode undefined: 0xa5": {
+            "in": "0xa5",
+            "out": false
+        },
+        "single opcode undefined: 0xa6": {
+            "in": "0xa6",
+            "out": false
+        },
+        "single opcode undefined: 0xa7": {
+            "in": "0xa7",
+            "out": false
+        },
+        "single opcode undefined: 0xa8": {
+            "in": "0xa8",
+            "out": false
+        },
+        "single opcode undefined: 0xa9": {
+            "in": "0xa9",
+            "out": false
+        },
+        "single opcode undefined: 0xaa": {
+            "in": "0xaa",
+            "out": false
+        },
+        "single opcode undefined: 0xab": {
+            "in": "0xab",
+            "out": false
+        },
+        "single opcode undefined: 0xac": {
+            "in": "0xac",
+            "out": false
+        },
+        "single opcode undefined: 0xad": {
+            "in": "0xad",
+            "out": false
+        },
+        "single opcode undefined: 0xae": {
+            "in": "0xae",
+            "out": false
+        },
+        "single opcode undefined: 0xaf": {
+            "in": "0xaf",
+            "out": false
+        },
+        "single opcode undefined: 0xb0": {
+            "in": "0xb0",
+            "out": false
+        },
+        "single opcode undefined: 0xb1": {
+            "in": "0xb1",
+            "out": false
+        },
+        "single opcode undefined: 0xb2": {
+            "in": "0xb2",
+            "out": false
+        },
+        "single opcode undefined: 0xb3": {
+            "in": "0xb3",
+            "out": false
+        },
+        "single opcode undefined: 0xb4": {
+            "in": "0xb4",
+            "out": false
+        },
+        "single opcode undefined: 0xb5": {
+            "in": "0xb5",
+            "out": false
+        },
+        "single opcode undefined: 0xb6": {
+            "in": "0xb6",
+            "out": false
+        },
+        "single opcode undefined: 0xb7": {
+            "in": "0xb7",
+            "out": false
+        },
+        "single opcode undefined: 0xb8": {
+            "in": "0xb8",
+            "out": false
+        },
+        "single opcode undefined: 0xb9": {
+            "in": "0xb9",
+            "out": false
+        },
+        "single opcode undefined: 0xba": {
+            "in": "0xba",
+            "out": false
+        },
+        "single opcode undefined: 0xbb": {
+            "in": "0xbb",
+            "out": false
+        },
+        "single opcode undefined: 0xbc": {
+            "in": "0xbc",
+            "out": false
+        },
+        "single opcode undefined: 0xbd": {
+            "in": "0xbd",
+            "out": false
+        },
+        "single opcode undefined: 0xbe": {
+            "in": "0xbe",
+            "out": false
+        },
+        "single opcode undefined: 0xbf": {
+            "in": "0xbf",
+            "out": false
+        },
+        "single opcode undefined: 0xc0": {
+            "in": "0xc0",
+            "out": false
+        },
+        "single opcode undefined: 0xc1": {
+            "in": "0xc1",
+            "out": false
+        },
+        "single opcode undefined: 0xc2": {
+            "in": "0xc2",
+            "out": false
+        },
+        "single opcode undefined: 0xc3": {
+            "in": "0xc3",
+            "out": false
+        },
+        "single opcode undefined: 0xc4": {
+            "in": "0xc4",
+            "out": false
+        },
+        "single opcode undefined: 0xc5": {
+            "in": "0xc5",
+            "out": false
+        },
+        "single opcode undefined: 0xc6": {
+            "in": "0xc6",
+            "out": false
+        },
+        "single opcode undefined: 0xc7": {
+            "in": "0xc7",
+            "out": false
+        },
+        "single opcode undefined: 0xc8": {
+            "in": "0xc8",
+            "out": false
+        },
+        "single opcode undefined: 0xc9": {
+            "in": "0xc9",
+            "out": false
+        },
+        "single opcode undefined: 0xca": {
+            "in": "0xca",
+            "out": false
+        },
+        "single opcode undefined: 0xcb": {
+            "in": "0xcb",
+            "out": false
+        },
+        "single opcode undefined: 0xcc": {
+            "in": "0xcc",
+            "out": false
+        },
+        "single opcode undefined: 0xcd": {
+            "in": "0xcd",
+            "out": false
+        },
+        "single opcode undefined: 0xce": {
+            "in": "0xce",
+            "out": false
+        },
+        "single opcode undefined: 0xcf": {
+            "in": "0xcf",
+            "out": false
+        },
+        "single opcode undefined: 0xd0": {
+            "in": "0xd0",
+            "out": false
+        },
+        "single opcode undefined: 0xd1": {
+            "in": "0xd1",
+            "out": false
+        },
+        "single opcode undefined: 0xd2": {
+            "in": "0xd2",
+            "out": false
+        },
+        "single opcode undefined: 0xd3": {
+            "in": "0xd3",
+            "out": false
+        },
+        "single opcode undefined: 0xd4": {
+            "in": "0xd4",
+            "out": false
+        },
+        "single opcode undefined: 0xd5": {
+            "in": "0xd5",
+            "out": false
+        },
+        "single opcode undefined: 0xd6": {
+            "in": "0xd6",
+            "out": false
+        },
+        "single opcode undefined: 0xd7": {
+            "in": "0xd7",
+            "out": false
+        },
+        "single opcode undefined: 0xd8": {
+            "in": "0xd8",
+            "out": false
+        },
+        "single opcode undefined: 0xd9": {
+            "in": "0xd9",
+            "out": false
+        },
+        "single opcode undefined: 0xda": {
+            "in": "0xda",
+            "out": false
+        },
+        "single opcode undefined: 0xdb": {
+            "in": "0xdb",
+            "out": false
+        },
+        "single opcode undefined: 0xdc": {
+            "in": "0xdc",
+            "out": false
+        },
+        "single opcode undefined: 0xdd": {
+            "in": "0xdd",
+            "out": false
+        },
+        "single opcode undefined: 0xde": {
+            "in": "0xde",
+            "out": false
+        },
+        "single opcode undefined: 0xdf": {
+            "in": "0xdf",
+            "out": false
+        },
+        "single opcode undefined: 0xe0": {
+            "in": "0xe0",
+            "out": false
+        },
+        "single opcode undefined: 0xe1": {
+            "in": "0xe1",
+            "out": false
+        },
+        "single opcode undefined: 0xe2": {
+            "in": "0xe2",
+            "out": false
+        },
+        "single opcode undefined: 0xe3": {
+            "in": "0xe3",
+            "out": false
+        },
+        "single opcode undefined: 0xe4": {
+            "in": "0xe4",
+            "out": false
+        },
+        "single opcode undefined: 0xe5": {
+            "in": "0xe5",
+            "out": false
+        },
+        "single opcode undefined: 0xe6": {
+            "in": "0xe6",
+            "out": false
+        },
+        "single opcode undefined: 0xe7": {
+            "in": "0xe7",
+            "out": false
+        },
+        "single opcode undefined: 0xe8": {
+            "in": "0xe8",
+            "out": false
+        },
+        "single opcode undefined: 0xe9": {
+            "in": "0xe9",
+            "out": false
+        },
+        "single opcode undefined: 0xea": {
+            "in": "0xea",
+            "out": false
+        },
+        "single opcode undefined: 0xeb": {
+            "in": "0xeb",
+            "out": false
+        },
+        "single opcode undefined: 0xec": {
+            "in": "0xec",
+            "out": false
+        },
+        "single opcode undefined: 0xed": {
+            "in": "0xed",
+            "out": false
+        },
+        "single opcode undefined: 0xee": {
+            "in": "0xee",
+            "out": false
+        },
+        "single opcode undefined: 0xef": {
+            "in": "0xef",
+            "out": false
+        },
+        "single opcode undefined: 0xf6": {
+            "in": "0xf6",
+            "out": false
+        },
+        "single opcode undefined: 0xf7": {
+            "in": "0xf7",
+            "out": false
+        },
+        "single opcode undefined: 0xf8": {
+            "in": "0xf8",
+            "out": false
+        },
+        "single opcode undefined: 0xf9": {
+            "in": "0xf9",
+            "out": false
+        },
+        "single opcode undefined: 0xfb": {
+            "in": "0xfb",
+            "out": false
+        },
+        "single opcode undefined: 0xfc": {
+            "in": "0xfc",
+            "out": false
+        },
+
         "single opcode blacklisted: ADDRESS": {
             "in": "0x30",
             "out": false
